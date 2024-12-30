@@ -9,12 +9,20 @@ def main():
     s = "This is a string"
     print(s)
     
-    # TODO: Try combining them. 
+    # Try combining them.
+    # print(b + s)
     
-    # TODO: Bytes and strings need to be properly encoded and decoded
+    # Bytes and strings need to be properly encoded and decoded
     # before you can work on them together
+    s_encoded = s.encode()
+    print(b + s_encoded)
+
+    b_decoded = b.decode()
+    print(b_decoded + s)
     
-    # TODO: encode the string as UTF-32
-    
+    # encode the string as UTF-32
+    print(s.encode('utf-8'))
+
+
 if __name__ == "__main__":
     main()

@@ -1,4 +1,5 @@
 # demonstrate template string functions
+from string import Template
 
 
 def main():
@@ -6,11 +7,19 @@ def main():
     str1 = "You're watching {0} by {1}".format("Advanced Python", "Joe Marini")
     print(str1)
     
-    # TODO: create a template with placeholders
-    
-    # TODO: use the substitute method with keyword arguments
-    
-    # TODO: use the substitute method with a dictionary
+    # create a template with placeholders
+    template = Template("You're watching ${title} by ${author}")
+
+    # use the substitute method with keyword arguments
+    str2 = template.substitute(title="Just some course", author="Pavel Savastseika")
+    print(str2)
+    # use the substitute method with a dictionary
+    params = {
+        "title": "Some Course",
+        "author": "Some Author",
+    }
+    str3 = template.substitute(params)
+    print(str3)
 
     
 if __name__ == "__main__":
