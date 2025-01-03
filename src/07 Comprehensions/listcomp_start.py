@@ -4,13 +4,14 @@
 def main():
     # define two lists of numbers
     evens = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
-    odds = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
 
-    # TODO: Perform a mapping and filter function on a list
+    # Perform a mapping and filter function on a list
+    even_squared = list(map(lambda x: x**2, filter(lambda x: 4 < x < 16, evens)))
+    print(even_squared)
 
-    # TODO: Derive a new list of numbers frm a given list
-
-    # TODO: Limit the items operated on with a predicate condition
+    # Derive a new list of numbers frm a given list
+    even_squared = [x ** 2 for x in evens if 4 < x < 16]
+    print(even_squared)
 
 
 if __name__ == "__main__":
