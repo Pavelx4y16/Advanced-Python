@@ -1,9 +1,11 @@
 # demonstrate the logging api in Python
+# use the built-in logging module
+import logging
 
-# TODO: use the built-in logging module
 
 def main():
-    # TODO: Use basicConfig to configure logging
+    # Use basicConfig to configure logging
+    logging.basicConfig(level=logging.DEBUG, filename="output.log", filemode="w")
 
     # Try out each of the log levels
     logging.debug("This is a debug message")
@@ -12,7 +14,8 @@ def main():
     logging.error("This is a error message")
     logging.critical("This is a critical message")
 
-    # TODO: Output formatted strings to the log
+    # Output formatted strings to the log
+    logging.info("Some formatted string with {} argument".format("useful"))
 
 
 if __name__ == "__main__":
