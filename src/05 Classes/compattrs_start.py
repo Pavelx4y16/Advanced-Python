@@ -1,34 +1,46 @@
 # customize string representations of objects
 
 
-class myColor():
+class MyColor:
     def __init__(self):
         self.red = 50
         self.green = 75
         self.blue = 100
 
-    # TODO: use getattr to dynamically return a value
+    # use getattr to dynamically return a value
     def __getattr__(self, attr):
-        pass
+        if attr == "rgb":
+            return self.red, self.green, self.blue
+        else:
+            raise AttributeError
 
-    # TODO: use setattr to dynamically return a value
+    # use setattr to dynamically set a value
     def __setattr__(self, attr, val):
-        super().__setattr__(attr, val)
+        if attr == "rgb":
+            self.red, self.green, self.blue = val
+        else:
+            super().__setattr__(attr, val)
 
-    # TODO: use dir to list the available properties
+    # use dir to list the available properties
     def __dir__(self):
-        pass
+        return ["red", "green", "blue", "rgb"]
+
 
 def main():
     # create an instance of myColor
-    cls1 = myColor()
-    # TODO: print the value of a computed attribute
+    color = MyColor()
+    # print the value of a computed attribute
+    print(color.rgb)
 
-    # TODO: set the value of a computed attribute
+    # set the value of a computed attribute
+    color.rgb = (1, 2, 3)
+    print(color.rgb)
 
-    # TODO: access a regular attribute
+    # access a regular attribute
+    print(color.green)
 
-    # TODO: list the available attributes
+    # list the available attributes
+    print(dir(color))
 
 
 if __name__ == "__main__":
