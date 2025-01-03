@@ -13,13 +13,30 @@ def main():
     # sort the teams by number of wins
     sortedTeams = sorted(sportTeams, key=lambda t: t[1][0], reverse=True)
 
-    # TODO: create an ordered dictionary of the teams
+    # create an ordered dictionary of the teams
+    teams = OrderedDict(sortedTeams)
 
-    # TODO: Use popitem to remove the top item
+    # Use popitem to remove the top item
+    top_team = teams.popitem(last=False)
+    print(top_team)
+    print(teams)
 
-    # TODO: What are next the top 4 teams?
+    # What are next the top 4 teams?
+    for i, team in enumerate(teams, start=1):
+        if i <= 4:
+            print(team)
+        else:
+            break
 
-    # TODO: test for equality
+    # test for equality
+    a = OrderedDict({"a": 1, "b": 2, "c": 3})
+    b = OrderedDict({"a": 1, "b": 2, "c": 3})
+    print(a == b)
+
+    a = OrderedDict({"a": 1, "b": 2, "c": 3})
+    b = OrderedDict({"a": 1, "c": 3, "b": 2})
+    print(a == b)
+
 
 if __name__ == "__main__":
     main()
