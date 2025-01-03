@@ -6,15 +6,27 @@ import string
 
 def main():
     
-    # TODO: initialize a deque with lowercase letters
+    # initialize a deque with lowercase letters
+    d = collections.deque(string.ascii_lowercase)
 
-    # TODO: deques support the len() function
+    # deques support the len() function
+    print(len(d))
 
-    # TODO: deques can be iterated over
+    # deques can be iterated over
+    for item in d:
+        print(item, end=" ")
+    print()
 
-    # TODO: manipulate items from either end
+    # manipulate items from either end
+    d.pop()
+    d.popleft()
+    d.append(2)
+    d.appendleft(1)
+    print(d)
 
-    # TODO: rotate the deque
+    # rotate the deque
+    d.rotate(2)
+    print(d)
 
 
 if __name__ == "__main__":
